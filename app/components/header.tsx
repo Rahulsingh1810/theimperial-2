@@ -38,6 +38,7 @@ export default function Header() {
       hasSubmenu: true,
     },
     { href: "/news-company-insights", label: "News and Company Insights" },
+    { href: "/lp-login", label: "LP Login" },
   ];
 
   return (
@@ -85,11 +86,7 @@ export default function Header() {
             </ul>
           </nav>
           <div className="flex items-center space-x-4">
-            <Link href="/not-found">
-              <Button className=" bg-zinc-100 opacity-60 backdrop-blur-lg text-black px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors">
-                LP Login
-              </Button>
-            </Link>
+            
             <button className="lg:hidden" onClick={toggleMenu}>
               <Menu size={24} />
             </button>
