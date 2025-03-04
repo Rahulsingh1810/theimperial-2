@@ -1,34 +1,73 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import Link from "next/link";
-import ResumeSubmissionForm from "../../components/resume-submission-form";
+} from '@/components/ui/accordion';
+import Link from 'next/link';
+import ResumeSubmissionForm from '../../components/resume-submission-form';
 
 export default function Careers() {
   const jobOpenings = [
     {
-      title: "Quantitative Analyst",
-      department: "Research",
-      location: "Gurugram",
+      title: 'Quantitative Analyst',
+      department: 'Research',
+      location: 'Gurugram',
     },
-    { title: "Data Scientist", department: "Technology", location: "Gurugram" },
+    { title: 'Data Scientist', department: 'Technology', location: 'Gurugram' },
     {
-      title: "Software Engineer",
-      department: "Technology",
-      location: "Gurugram",
+      title: 'Software Engineer',
+      department: 'Technology',
+      location: 'Gurugram',
     },
     {
-      title: "Risk Manager",
-      department: "Risk Management",
-      location: "Gurugram",
+      title: 'Risk Manager',
+      department: 'Risk Management',
+      location: 'Gurugram',
     },
-    { title: "Trader", department: "Trading", location: "Gurugram" },
+    { title: 'Trader', department: 'Trading', location: 'Gurugram' },
+  ];
+
+  const faqs = [
+    {
+      question: 'What types of roles are available at your firm?',
+      answer:
+        'We offer a wide range of roles across different functions, including investment analysts, portfolio managers, risk managers, quantitative analysts, and operations specialists. We also have openings in strategy, compliance, and business development for those looking to impact the broader direction of the firm.',
+    },
+    {
+      question:
+        'What qualifications and experience do you look for in candidates?',
+      answer:
+        'We seek individuals with exceptional academic backgrounds and professional experience in finance, economics, engineering, data science, or related fields. Experience in global markets, quantitative analysis, or investment management is highly valued. Strong problem-solving skills, creativity, and the ability to work collaboratively in high-pressure environments are essential.',
+    },
+    {
+      question: 'How does your firm foster career growth and development?',
+      answer:
+        'We believe in continuous learning and provide ample opportunities for professional growth. From mentorship programs and on-the-job training to attending industry conferences and workshops, we equip our employees with the resources they need to expand their expertise and advance in their careers.',
+    },
+    {
+      question: 'What makes your firm a great place to work?',
+      answer:
+        'We foster a collaborative and innovative culture where your ideas are valued, and your contributions have a direct impact on our success. We offer competitive compensation packages, a work-life balance, and access to cutting-edge resources. Our team-oriented approach allows individuals to work alongside top-tier professionals in an environment where growth is both encouraged and supported.',
+    },
+    {
+      question: 'What can I expect during the interview process?',
+      answer:
+        'Our interview process is designed to assess both technical skills and cultural fit. You can expect a combination of technical interviews, case studies, and behavioral assessments. We are looking for individuals who not only excel in their domain but who also align with our values of integrity, collaboration, and innovation.',
+    },
+    {
+      question: 'What kind of impact will I have by working at your firm?',
+      answer:
+        'As part of our team, you will have the opportunity to shape the future of investment strategies, influence decision-making processes, and contribute to value creation for our clients. Your work will directly impact our firms performance and our clients success.',
+    },
+    {
+      question: 'What verticals can we join?',
+      answer:
+        'We are looking for talent in the following verticals: Quantitative Analysts, Data Scientists, Software Engineers, Risk Managers, and Traders.',
+    },
   ];
 
   return (
@@ -89,14 +128,13 @@ export default function Careers() {
                   <CardContent>
                     <p>Department: {job.department}</p>
                     <p>Location: {job.location}</p>
-                    
-                      <Link
-                        className="text-blue-900 underline"
-                        href={`/careers/${job.title.toLowerCase().replace(/ /g, "-")}`}
-                      >
-                        View Details
-                      </Link>
-                    
+
+                    <Link
+                      className="text-blue-900 underline"
+                      href={`/careers/${job.title.toLowerCase().replace(/ /g, '-')}`}
+                    >
+                      View Details
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -117,26 +155,44 @@ export default function Careers() {
             <h2 className="text-2xl  mb-4">We offer you:</h2>
             <ul className=" list-inside text-xl space-y-2 mb-6">
               <li>
-                hallenging and Rewarding Work: Tackle complex
-                challenges and take ownership of projects that influence the
-                firm's success.
+                hallenging and Rewarding Work: Tackle complex challenges and
+                take ownership of projects that influence the firm's success.
               </li>
               <li>
-                Professional Growth:Continuous learning
-                through mentorship, training, and access to industry-leading
-                resources.
+                Professional Growth:Continuous learning through mentorship,
+                training, and access to industry-leading resources.
               </li>
               <li>
-                Competitive Compensation: Attractive salary
-                packages, bonuses, and benefits that reflect the value you bring
-                to the firm.
+                Competitive Compensation: Attractive salary packages, bonuses,
+                and benefits that reflect the value you bring to the firm.
               </li>
               <li>
-                Collaborative Culture: A work environment where
-                every team member is respected, supported, and encouraged to
-                contribute their unique perspectives.
+                Collaborative Culture: A work environment where every team
+                member is respected, supported, and encouraged to contribute
+                their unique perspectives.
               </li>
             </ul>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <h2 className="text-3xl mb-6">Frequently Asked Questions</h2>
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full decoration-none"
+            >
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-xl font-medium text-left">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-lg">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </section>
 
           <section className="mb-16">
@@ -147,15 +203,12 @@ export default function Careers() {
               apply today. Use the form below to submit your application and
               take the next step in your career.
             </p>
-            
           </section>
-          
         </div>
-        
       </div>
       <div className="w-full">
-              <ResumeSubmissionForm />
-            </div>
+        <ResumeSubmissionForm />
+      </div>
     </div>
   );
 }
