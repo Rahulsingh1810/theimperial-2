@@ -62,7 +62,7 @@ export default function OurOffices() {
         
       ].map((location, index) => (
         <div key={index} className="bg-white p-4 ">
-          <div className="w-full h-[500px] overflow-hidden">
+          <div className="w-full h-[575px] overflow-hidden">
             <Image
               src={location.image}
               alt={`Location ${index + 1}`}

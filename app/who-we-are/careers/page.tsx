@@ -155,7 +155,7 @@ export default function Careers() {
             <h2 className="text-2xl  mb-4">We offer you:</h2>
             <ul className=" list-inside text-xl space-y-2 mb-6">
               <li>
-                hallenging and Rewarding Work: Tackle complex challenges and
+                Challenging and Rewarding Work: Tackle complex challenges and
                 take ownership of projects that influence the firm's success.
               </li>
               <li>

@@ -12,7 +12,7 @@ const founders = [
   {
     name: "Tusheet Saraf CFA, FRM, MBA",
     image: "/Tusheet.JPG",
-    description:"Tusheet is a seasoned Investment Manager with an MBA from ISB and holds over 13 years of experience across Investment Banking and Asset Management.He is a distinguished Investment Manager with expertise in portfolio optimization, asset allocation, and risk mitigation. ",
+    description:"Tusheet is a seasoned Investment Manager with an MBA from ISB and holds over 13 years of experience across Investment Banking and Asset Management. He is a distinguished Investment Manager with expertise in portfolio optimization, asset allocation, and risk mitigation. ",
   },
 ];
 
