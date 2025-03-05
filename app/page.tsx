@@ -1,14 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+
+
 import { ArrowRight, BarChart2, Globe, Shield, TrendingUp } from 'lucide-react';
 import NewsletterForm from './components/NewsLetterForm';
 import VideoPlayer from './components/VideoPlayer';

@@ -54,9 +54,9 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-light mb-6">Get in Touch</h3>
               <ul className="space-y-4">
-                <li><Link href="#" className="hover:text-gray-300">Contact Us</Link></li>
-                <li><Link href="#" className="hover:text-gray-300">Our Offices</Link></li>
-                <li><Link href="#" className="hover:text-gray-300">Limited Partner Login</Link></li>
+                {/* <li><Link href="#" className="hover:text-gray-300">Contact Us</Link></li> */}
+                <li><Link href="/who-we-are/offices" className="hover:text-gray-300">Our Offices</Link></li>
+                <li><Link href="/gdhgj" className="hover:text-gray-300">Limited Partner Login</Link></li>
               </ul>
             </div>
           </div>

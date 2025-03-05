@@ -106,7 +106,7 @@ export default function Careers() {
         </h1> */}
 
           <section className="mb-16">
-            <p className="text-xl mb-6">
+            <p className="text-xl text-justify mb-6">
               At our investment firm, we believe that our success is driven by
               the caliber of our team. We are constantly seeking top-tier
               professionals—individuals with a passion for excellence, a keen
@@ -143,7 +143,7 @@ export default function Careers() {
 
           <section className="mb-16">
             <h2 className="text-3xl  mb-6">Why Join Us?</h2>
-            <p className="text-xl mb-6">
+            <p className="text-xl text-justify mb-6">
               At our investment firm, we don't just hire employees—we invest in
               future leaders. If you're a driven, innovative, and highly skilled
               professional ready to elevate your career and make an impact in

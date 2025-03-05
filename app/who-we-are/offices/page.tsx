@@ -1,5 +1,5 @@
 import Image from "next/image"
-import LocationAccordion from "./LocationAccordion"
+
 import { ArrowRight, BarChart2, Globe, Shield, TrendingUp } from 'lucide-react';
 
 export default function OurOffices() {
@@ -62,7 +62,7 @@ export default function OurOffices() {
         
       ].map((location, index) => (
         <div key={index} className="bg-white p-4 ">
-          <div className="w-full h-[575px] overflow-hidden">
+          <div className="w-full aspect-[1/1] overflow-hidden">
             <Image
               src={location.image}
               alt={`Location ${index + 1}`}

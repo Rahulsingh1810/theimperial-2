@@ -55,7 +55,7 @@ export default function ResumeSubmissionForm() {
   return (
     <div className={`min-h-screen bg-[#08225a] text-white p-4 sm:p-6 md:p-8 `}>
       <div className="m-w-full  mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 pl-32 lg:gap-12  items-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:pl-28 lg:gap-12  items-start">
           <div className="space-y-6 md:space-y-8">
             <div className="space-y-4">
               <div className="space-y-2">

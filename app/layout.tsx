@@ -30,6 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`h-full ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={`flex flex-col min-h-screen ${inter.className}`}>
         <Header />
         <main className="flex-grow">

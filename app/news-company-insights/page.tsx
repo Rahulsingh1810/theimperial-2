@@ -9,7 +9,7 @@ export default function CompanyInsights() {
   const newsItems = [
     {
       title: "Incorporation in GIFT City A New Chapter for Our Investment Company",
-      date: "June 15, 2023",
+      date: "February 28, 2025",
       excerpt: "Our company is proud to announce its incorporation in Gujarat International Finance Tec-City (GIFT City), India's premier global financial hub.",
     },
     {

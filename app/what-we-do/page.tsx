@@ -53,12 +53,12 @@ export default function WhatWeDo() {
           <h2 className="text-4xl mb-10 text-center text-pantone-dark">Our Approach</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-xl mb-6">
+              <p className="text-xl text-justify mb-6">
                 At The Imperial Crest, we combine sophisticated trading strategies, rigorous research, and advanced 
                 technology to navigate the complexities of global financial markets. Our integrated approach allows 
                 us to identify and capitalize on unique opportunities, delivering exceptional results for our clients.
               </p>
-              <ul className=" space-y-3 text-lg">
+              <ul className=" space-y-3 text-justify text-lg">
                 <li>Quantitative analysis and modeling</li>
                 <li>High-frequency and algorithmic trading</li>
                 <li>Machine learning-driven predictions</li>

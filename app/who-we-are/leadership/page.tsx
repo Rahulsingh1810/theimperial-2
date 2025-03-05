@@ -95,7 +95,7 @@ export default function OurOffices() {
           className="  w-[400px] h-[600px] object-fit"
         />
         <h3 className="text-2xl font-semibold mt-4">{founder.name}</h3>
-        <p className="text-lg mt-2 max-w-md text-left">{founder.description}</p>
+        <p className="text-lg mt-2 max-w-md text-justify">{founder.description}</p>
       </div>
     ))}
   </div>
@@ -155,7 +155,7 @@ export default function OurOffices() {
         <h2 className="text-xl font-semibold mb-2">
           {profession.profession}
         </h2>
-        <p className="whitespace-pre-line">{profession.description}</p>
+        <p className="whitespace-pre-line ">{profession.description}</p>
       </CardContent>
     </Card>
   ))}

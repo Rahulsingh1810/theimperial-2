@@ -99,7 +99,7 @@ export default function NewsItem({ params }: { params: { slug: string } }) {
             />
           </div>
           <div className="md:w-2/3">
-            <p className="text-lg leading-relaxed mb-6">{newsItem.content}</p>
+            <p className="text-lg text-justify leading-relaxed mb-6">{newsItem.content}</p>
             <div className="flex flex-wrap gap-2">
               {newsItem.tags.map((tag, index) => (
                 <span key={index} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
