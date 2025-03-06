@@ -56,6 +56,7 @@ export default function Footer() {
               <ul className="space-y-4">
                 {/* <li><Link href="#" className="hover:text-gray-300">Contact Us</Link></li> */}
                 <li><Link href="/who-we-are/offices" className="hover:text-gray-300">Our Offices</Link></li>
+                <li><a href="mailto:info@theimperialcrest.com" className="hover:text-gray-300">Email: info@theimperialcrest.com</a></li>
                 <li><Link href="/gdhgj" className="hover:text-gray-300">Limited Partner Login</Link></li>
               </ul>
             </div>
