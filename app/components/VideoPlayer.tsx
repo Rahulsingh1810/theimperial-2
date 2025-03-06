@@ -7,9 +7,12 @@ import { Button } from "@/components/ui/button"
 
 interface VideoPlayerProps {
   src: string
+  title: string
+  description: string
+  footerContent: string
 }
 
-export default function VideoPlayer({ src }: VideoPlayerProps) {
+export default function VideoPlayer({ src, title, description, footerContent }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -46,29 +49,20 @@ export default function VideoPlayer({ src }: VideoPlayerProps) {
       >
         {isPlaying ? <Pause size={24} /> : <Play size={24} />}
       </button>
-      <div className="absolute top-0 font-sans left-0 z-10 p-6">
+      <div className="absolute top-0 left-0 z-10 p-6">
         <div className="max-w-2xl">
           <h1 className="md:text-6xl text-4xl  mb-6 !leading-snug">
-            Empowering Visions,
-            <br />
-            Elevating Value
+            {title}
           </h1>
           <p className="text-2xl md:text-3xl mb-8 font-light">
-            Where Ambitions Meet Opportunities
+            {description}
           </p>
         </div>
       </div>
       <div className="absolute md:w-[97%] bottom-0 left-0 right-0 bg-blue-900 bg-opacity-60 backdrop-blur-lg py-8 z-20">
         <div className="container mx-auto px-6">
           <div className="md:pl-10">
-            <h3 className="text-xl mb-2"></h3>
-            <p className="md:text-lg">
-              To lead with a royal standard of trust that reflects heritage, pedigree, and
-              <br />
-              everlasting value for society, to build an iconic legacy of
-              <br />
-              value creation that endures through time.
-            </p>
+            <p className="md:text-lg" dangerouslySetInnerHTML={{ __html: footerContent }} />
           </div>
         </div>
       </div>

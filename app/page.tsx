@@ -10,8 +10,14 @@ import WealthSolutions from './components/wealth-solutions';
 export default function Home() {
   return (
     <div className="">
-      <div className="flex pl-10 mb:pl-14 justify-center w-full md:py-16">
-        <VideoPlayer src='/Website Low Res Video.mov'/>
+      <div className="flex  mb:pl-14 justify-center w-full md:py-16">
+        <VideoPlayer src='/Website Low Res Video.mov'
+        title='Empowering Visions, Elevating Value'
+        description='Where Ambitions Meet Opportunities'
+        footerContent={`To lead with a royal standard of trust that reflects heritage, pedigree, and<br />
+          everlasting value for society, to build an iconic legacy of<br />
+          value creation that endures through time.`}
+        />
       </div>
 
       {/* Key Features */}

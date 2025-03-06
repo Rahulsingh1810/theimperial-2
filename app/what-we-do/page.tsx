@@ -10,7 +10,11 @@ export default function WhatWeDo() {
         
         <section className="mb-20">
           <div className="flex justify-center w-full bg-white md:py-16">
-                  <VideoPlayer src='/What We Do Low Res.mov'></VideoPlayer>
+                  <VideoPlayer src='/What We Do Low Res.mov'
+                  title='Driving Growth Through Opportunities'
+                  description='Where Ambitions Meet Opportunities'
+                  footerContent={`We identify, seize, and leverage market openings and strategic possibilities<br/> to foster sustainable growth and <br/> create lasting value.`}
+                  ></VideoPlayer>
                 </div>
           <h2 className="text-4xl pt-10  mb-10 text-center text-pantone-dark/90">Trading. Research. Tech.</h2>
           <div className="flex flex-wrap justify-center gap-6">

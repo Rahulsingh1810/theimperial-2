@@ -13,6 +13,7 @@ export default function WealthSolutions() {
 
     const animation = ticker.animate([{ transform: "translateX(100%)" }, { transform: "translateX(-100%)" }], {
       duration: 15000,
+      
       iterations: Number.POSITIVE_INFINITY,
     })
 
