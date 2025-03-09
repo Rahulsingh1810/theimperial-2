@@ -154,7 +154,7 @@ export default function Header() {
                   )}
                 </li>
               ))}
-              <li>
+              {/* <li>
                 <Button
                   variant="outline"
                   className="w-full text-pantone border-white hover:bg-gray-100 text-xl py-3"
@@ -163,7 +163,7 @@ export default function Header() {
                     Contact Us
                   </Link>
                 </Button>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
