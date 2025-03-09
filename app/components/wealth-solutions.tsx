@@ -44,7 +44,7 @@ export default function WealthSolutions() {
                 Individuals.
               </h1>
 
-              <p className="text-lg max-w-md mb-12 text-justify leading-10">
+              <p className="text-lg max-w-md mb-12 md:text-justify leading-10">
               Alpha Generation: Driving exceptional returns for our investors and ourselves.<br/>
                   Trusted Partnership: A commitment to integrity and excellence.<br/>
                   Resilient Wealth Strategies: Adapting to change while staying future-focused.<br/>
