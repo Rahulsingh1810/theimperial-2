@@ -6,9 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import type React from "react" // Added import for React
-
-
+import type React from "react"
 
 export default function NewsletterForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -16,8 +14,32 @@ export default function NewsletterForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Add your form submission logic here
-    setIsSubmitting(false)
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const data = {
+      email: formData.get('email'),
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      company: formData.get('company'),
+      jobTitle: formData.get('jobTitle'),
+    }
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (response.ok) {
+        console.log('Subscription successful')
+        form.reset()
+      } else {
+        console.error('Error subscribing')
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -41,6 +63,7 @@ export default function NewsletterForm() {
               <div className="space-y-2">
                 <Input
                   type="email"
+                  name="email"
                   required
                   placeholder="Email Address *"
                   className="bg-transparent border-0 border-b border-white/30 rounded-none px-0 h-12 
@@ -50,6 +73,7 @@ export default function NewsletterForm() {
               </div>
               <div className="space-y-2">
                 <Input
+                  name="firstName"
                   required
                   placeholder="First Name *"
                   className="bg-transparent border-0 border-b border-white/30 rounded-none px-0 h-12 
@@ -59,6 +83,7 @@ export default function NewsletterForm() {
               </div>
               <div className="space-y-2">
                 <Input
+                  name="lastName"
                   required
                   placeholder="Last Name *"
                   className="bg-transparent border-0 border-b border-white/30 rounded-none px-0 h-12 
@@ -68,6 +93,7 @@ export default function NewsletterForm() {
               </div>
               <div className="space-y-2">
                 <Input
+                  name="company"
                   placeholder="Company"
                   className="bg-transparent border-0 border-b border-white/30 rounded-none px-0 h-12 
                     placeholder:text-white/50 focus-visible:ring-0 focus-visible:border-white
@@ -76,6 +102,7 @@ export default function NewsletterForm() {
               </div>
               <div className="space-y-2">
                 <Input
+                  name="jobTitle"
                   placeholder="Job Title"
                   className="bg-transparent border-0 border-b border-white/30 rounded-none px-0 h-12 
                     placeholder:text-white/50 focus-visible:ring-0 focus-visible:border-white
@@ -118,4 +145,3 @@ export default function NewsletterForm() {
     </div>
   )
 }
-

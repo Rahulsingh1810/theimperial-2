@@ -9,8 +9,6 @@ import { Label } from "@/components/ui/label"
 import { Inter } from "next/font/google"
 import type React from "react"
 
-
-
 export default function ResumeSubmissionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -36,19 +34,37 @@ export default function ResumeSubmissionForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    const submissionData = new FormData()
+    submissionData.append('name', formData.name)
+    submissionData.append('email', formData.email)
+    submissionData.append('phone', formData.phone)
+    submissionData.append('position', formData.position)
+    submissionData.append('coverLetter', formData.coverLetter)
+    if (formData.resume) {
+      submissionData.append('resume', formData.resume)
+    }
     try {
-      // Handle form submission here
-      console.log(formData)
+      const response = await fetch('/api/submit-resume', {
+        method: 'POST',
+        body: submissionData,
+      })
+      if (response.ok) {
+        console.log('Resume submitted successfully')
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          position: "",
+          coverLetter: "",
+          resume: null,
+        })
+      } else {
+        console.error('Error submitting resume')
+      }
+    } catch (error) {
+      console.error('Error:', error)
     } finally {
       setIsSubmitting(false)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        position: "",
-        coverLetter: "",
-        resume: null,
-      })
     }
   }
 
@@ -166,4 +182,3 @@ export default function ResumeSubmissionForm() {
     </div>
   )
 }
-
