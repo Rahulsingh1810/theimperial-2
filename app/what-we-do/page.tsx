@@ -9,7 +9,7 @@ export default function WhatWeDo() {
         <section className="mb-20">
           <div className="flex justify-center w-full bg-white md:py-16">
             <VideoPlayer
-              src="/https://videos.ctfassets.net/qhow19z5bpnk/3GPfKIiAsx8uVQNtl1ewFX/37edde5cb01cd8156dd5b6bf0ec8a4f1/What_We_Do_Low_Res.mov"
+              src="https://videos.ctfassets.net/qhow19z5bpnk/3GPfKIiAsx8uVQNtl1ewFX/37edde5cb01cd8156dd5b6bf0ec8a4f1/What_We_Do_Low_Res.mov"
               title="Driving Growth Through Opportunities"
               description="Where Ambitions Meet Opportunities"
               footerContent={`We identify, seize, and leverage market openings and strategic possibilities<br/> to foster sustainable growth and <br/> create lasting value.`}
@@ -225,7 +225,7 @@ export default function WhatWeDo() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <video
-              src="/https://videos.ctfassets.net/qhow19z5bpnk/upR9k4HwkuNMRTBuDXWdq/98e15d39bbbb29c178dcf040ece358f2/Global_Reach.mp4"
+              src="https://videos.ctfassets.net/qhow19z5bpnk/upR9k4HwkuNMRTBuDXWdq/98e15d39bbbb29c178dcf040ece358f2/Global_Reach.mp4"
               autoPlay
               loop
               muted
@@ -267,7 +267,7 @@ export default function WhatWeDo() {
               </ul>
             </div>
             <video
-              src="/https://videos.ctfassets.net/qhow19z5bpnk/3xG94hxjMUTeYuUuh6SJib/2c88081b14192e819d7dee26f641100a/Risk_Management.mp4"
+              src="https://videos.ctfassets.net/qhow19z5bpnk/3xG94hxjMUTeYuUuh6SJib/2c88081b14192e819d7dee26f641100a/Risk_Management.mp4"
               autoPlay
               loop
               muted

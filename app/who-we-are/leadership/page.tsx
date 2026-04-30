@@ -63,7 +63,7 @@ export default function OurOffices() {
                 muted
                 loop
                 playsInline
-                src="/https://videos.ctfassets.net/qhow19z5bpnk/77z53n4m4nIMpzaWXEYag0/edeeb732dcdb80eff3be02f16a806172/Our_Leadership_LOW_RES.mov" // Replace with your actual video file
+                src="https://videos.ctfassets.net/qhow19z5bpnk/77z53n4m4nIMpzaWXEYag0/edeeb732dcdb80eff3be02f16a806172/Our_Leadership_LOW_RES.mov" // Replace with your actual video file
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-40"></div>
