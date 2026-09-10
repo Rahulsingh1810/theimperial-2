@@ -1,0 +1,434 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import {
+  Building2,
+  ShieldCheck,
+  FileText,
+  AlertCircle,
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  Scale,
+  Lock,
+  UserCheck,
+  Info,
+  HelpCircle,
+  FileSpreadsheet,
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+export default function FundManagementEntityPage() {
+  const governanceItems = [
+    "Regulatory compliance",
+    "Risk management",
+    "Internal controls",
+    "Conflict of interest management",
+    "Anti-Money Laundering (AML) & Counter-Terrorist Financing (CFT)",
+    "Know Your Customer (KYC)",
+    "Investor protection",
+    "Record keeping and regulatory reporting",
+    "Grievance redressal",
+  ];
+
+  return (
+    <div className="bg-slate-50 min-h-screen text-slate-800">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-b from-[#041836] via-[#08225a] to-[#0b2b6f] text-white py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="bg-pantone-light/40 text-blue-100 hover:bg-pantone-light/60 px-4 py-1.5 text-sm font-medium tracking-wide uppercase mb-6 backdrop-blur-md border border-white/10">
+              FME &ndash; NON-RETAIL
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
+              Thinktank IFSC Private Limited
+            </h1>
+            <p className="text-xl md:text-2xl font-light text-blue-100/90 mb-6">
+              Fund Management Entity (Non-Retail) &bull; GIFT IFSC, Gujarat, India
+            </p>
+            <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-indigo-300 mx-auto mb-8 rounded-full"></div>
+            <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+              Registered with the International Financial Services Centres Authority (IFSCA) as a Fund Management Entity &ndash; Non-Retail, focused on professional fund management services supported by sound governance, risk management, and regulatory compliance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-12 md:py-16 space-y-16">
+        {/* Overview & Regulatory Details Section */}
+        <section>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-pantone mb-3">
+                Regulatory Information
+              </h2>
+              <p className="text-slate-600 text-lg">
+                Official Entity & Authorization Details
+              </p>
+            </div>
+
+            <Card className="border-slate-200 shadow-xl overflow-hidden bg-white mb-10">
+              <CardHeader className="bg-pantone text-white p-6">
+                <CardTitle className="text-xl flex items-center gap-3">
+                  <FileText className="w-6 h-6 text-blue-300" />
+                  Regulatory Summary
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="divide-y divide-slate-200 text-sm md:text-base">
+                  {[
+                    { label: "Name of Entity", value: "Thinktank IFSC Private Limited", bold: true },
+                    {
+                      label: "Address",
+                      value:
+                        "Unit No. 651, 6th Floor, Signature Building, GIFT City, Gandhinagar, Gujarat, India – 382050",
+                    },
+                    {
+                      label: "Regulatory Authority",
+                      value: "International Financial Services Centres Authority (IFSCA)",
+                    },
+                    {
+                      label: "FME Category",
+                      value: "Fund Management Entity – Non-Retail",
+                      badge: true,
+                    },
+                    {
+                      label: "FME Registration Number",
+                      value: "FDM2026FNR1056",
+                      highlight: true,
+                    },
+                    {
+                      label: "Jurisdiction",
+                      value: "GIFT International Financial Services Centre (GIFT IFSC), Gujarat, India",
+                    },
+                    {
+                      label: "Regulatory Framework",
+                      value:
+                        "IFSCA (Fund Management) Regulations, 2025, as amended from time to time, together with applicable circulars, guidelines and directions issued by IFSCA.",
+                    },
+                  ].map((row, idx) => (
+                    <div
+                      key={idx}
+                      className={`grid grid-cols-1 md:grid-cols-3 p-4 md:p-5 ${
+                        idx % 2 === 0 ? "bg-slate-50/60" : "bg-white"
+                      }`}
+                    >
+                      <span className="font-semibold text-slate-700 md:col-span-1">
+                        {row.label}
+                      </span>
+                      <span
+                        className={`md:col-span-2 mt-1 md:mt-0 ${
+                          row.bold ? "font-bold text-pantone text-base" : "text-slate-800"
+                        } ${
+                          row.highlight
+                            ? "inline-block bg-blue-100 text-pantone font-mono font-bold px-3 py-1 rounded-md w-fit"
+                            : ""
+                        } ${
+                          row.badge
+                            ? "inline-block bg-slate-800 text-white font-semibold px-2.5 py-0.5 rounded text-xs tracking-wide w-fit"
+                            : ""
+                        }`}
+                      >
+                        {row.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Current Status Callout */}
+            <div className="bg-gradient-to-r from-blue-900 to-pantone-dark text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                <div className="w-14 h-14 rounded-2xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 text-blue-300">
+                  <Info className="w-8 h-8" />
+                </div>
+                <div className="space-y-3">
+                  <Badge className="bg-blue-400/20 text-blue-200 border-none font-semibold">
+                    Current Operational Status
+                  </Badge>
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                    Development Stage Notice
+                  </h3>
+                  <p className="text-slate-200 text-base leading-relaxed">
+                    Thinktank IFSC Private Limited is currently developing its fund management activities. <strong>No fund or scheme has been launched by the Company as of date.</strong>
+                  </p>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Accordingly, there are currently no fund-specific details such as fund corpus, NAV, portfolio, investment performance or scheme-wise investor information available on this website. Details relating to any fund or scheme launched in the future will be disclosed as required under the applicable regulatory framework.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FME Activities & Governance Section */}
+        <section>
+          <div className="max-w-5xl mx-auto space-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Card className="border-slate-200 shadow-md bg-white">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-pantone/10 flex items-center justify-center text-pantone mb-2">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-pantone">
+                    FME Activities
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+                  <p>
+                    As a Fund Management Entity &ndash; Non-Retail, Thinktank IFSC Private Limited undertakes fund management activities as permitted under its registration and the applicable regulatory framework.
+                  </p>
+                  <p>
+                    The Company may establish and manage eligible investment schemes and structures in accordance with applicable laws, regulations, and regulatory requirements.
+                  </p>
+                  <p className="text-slate-800 font-medium pt-2 border-t border-slate-100">
+                    All activities of the Company are carried out subject to applicable compliance, governance, risk management, and internal control requirements.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-slate-200 shadow-md bg-white">
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-pantone/10 flex items-center justify-center text-pantone mb-2">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <CardTitle className="text-xl font-bold text-pantone">
+                    Risk Management Framework
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base">
+                  <p>
+                    Thinktank IFSC Private Limited maintains an appropriate risk management framework to identify, assess, monitor, and manage risks arising from its activities.
+                  </p>
+                  <p>
+                    The Company seeks to ensure that risks are managed through appropriate policies, procedures, internal controls, and oversight mechanisms.
+                  </p>
+                  <p className="text-slate-800 font-medium pt-2 border-t border-slate-100">
+                    Any investment activity undertaken by the Company will be carried out in accordance with applicable regulatory requirements and relevant investment objectives.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Governance and Compliance List */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+              <div className="flex items-center gap-3 mb-6">
+                <Scale className="w-7 h-7 text-pantone" />
+                <h3 className="text-2xl font-bold text-pantone">
+                  Governance and Compliance
+                </h3>
+              </div>
+              <p className="text-slate-600 text-base mb-6 leading-relaxed">
+                Thinktank IFSC Private Limited is committed to maintaining high standards of governance, compliance, and ethical conduct. The Company maintains appropriate policies, procedures, and internal controls covering its activities, including:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {governanceItems.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 transition-colors"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-pantone shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-slate-800">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Management, Conflicts of Interest, AML & KYC Section */}
+        <section>
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-slate-200 shadow-md bg-white">
+              <CardHeader>
+                <div className="w-10 h-10 rounded-lg bg-blue-100 text-pantone flex items-center justify-center mb-2">
+                  <UserCheck className="w-5 h-5" />
+                </div>
+                <CardTitle className="text-lg font-bold text-slate-900">
+                  Management
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-600 leading-relaxed">
+                Thinktank IFSC Private Limited is managed by its Board of Directors and designated personnel responsible for overseeing the Company&apos;s operations, compliance, risk management, and fund management activities. The Company maintains appropriate governance and oversight mechanisms.
+              </CardContent>
+            </Card>
+
+            <Card className="border-slate-200 shadow-md bg-white">
+              <CardHeader>
+                <div className="w-10 h-10 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mb-2">
+                  <Scale className="w-5 h-5" />
+                </div>
+                <CardTitle className="text-lg font-bold text-slate-900">
+                  Conflict of Interest
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-600 leading-relaxed">
+                The Company maintains appropriate policies and procedures for identifying, managing, and mitigating potential conflicts of interest. The Company seeks to ensure that any potential conflict is managed fairly, transparently, and in accordance with regulatory requirements.
+              </CardContent>
+            </Card>
+
+            <Card className="border-slate-200 shadow-md bg-white">
+              <CardHeader>
+                <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mb-2">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <CardTitle className="text-lg font-bold text-slate-900">
+                  AML / KYC Compliance
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-slate-600 leading-relaxed">
+                Committed to complying with applicable Anti-Money Laundering (AML), Counter-Terrorist Financing (CFT), and Know Your Customer (KYC) requirements. Following customer due diligence, monitoring, and reporting procedures prescribed by IFSCA.
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Grievance Redressal & Disclosures */}
+        <section>
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
+              <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center mb-6">
+                <div>
+                  <h3 className="text-2xl font-bold text-pantone mb-2">
+                    Grievance Redressal Mechanism
+                  </h3>
+                  <p className="text-slate-600 text-sm md:text-base">
+                    Addressing grievances in a fair, transparent, and timely manner.
+                  </p>
+                </div>
+                <div className="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center gap-3 shrink-0">
+                  <Mail className="w-5 h-5 text-pantone" />
+                  <div>
+                    <div className="text-xs uppercase font-semibold text-slate-500">
+                      Grievance Contact Email
+                    </div>
+                    <a
+                      href="mailto:info@theimperialcrest.com"
+                      className="text-pantone font-bold text-sm hover:underline"
+                    >
+                      info@theimperialcrest.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3 text-slate-600 text-sm md:text-base leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <p>
+                  Any client, investor, or other concerned person may submit a grievance to the Company through its designated grievance redressal mechanism.
+                </p>
+                <p>
+                  The Company shall endeavour to address grievances in accordance with its internal grievance redressal procedure and applicable regulatory requirements. Where applicable, unresolved grievances may be escalated through the grievance redressal mechanism prescribed by IFSCA.
+                </p>
+              </div>
+            </div>
+
+            {/* Regulatory Disclosures Policy */}
+            <div className="bg-slate-100 p-6 rounded-2xl border border-slate-200 text-slate-700 text-sm md:text-base leading-relaxed">
+              <strong>Regulatory Disclosures:</strong> Thinktank IFSC Private Limited shall make the disclosures required under the applicable IFSCA regulations, circulars, guidelines, and directions from time to time. The website will be updated with relevant regulatory information and disclosures as and when applicable.
+            </div>
+
+            {/* Important Disclaimer */}
+            <div className="bg-amber-50/80 border border-amber-200 p-6 md:p-8 rounded-2xl space-y-3">
+              <div className="flex items-center gap-2 text-amber-900 font-bold text-lg">
+                <AlertCircle className="w-5 h-5 text-amber-600" />
+                <h4>Important Disclaimer</h4>
+              </div>
+              <p className="text-amber-950 text-sm md:text-base leading-relaxed">
+                The information provided on this website is for general information purposes only and does not constitute an offer, solicitation, invitation, or recommendation to invest in any fund, scheme, or financial product.
+              </p>
+              <p className="text-amber-900 text-xs md:text-sm leading-relaxed">
+                No fund or scheme is currently being offered or launched by Thinktank IFSC Private Limited. Any fund or scheme that may be launched or managed by the Company in the future will be subject to applicable regulatory requirements and the relevant offering documents and disclosures. Investment in financial products involves risks. Prospective investors should carefully review offering documents and seek appropriate professional advice.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Us Section */}
+        <section>
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-[#041836] to-[#08225a] text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+              <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <Badge className="bg-blue-400/20 text-blue-200 mb-4 border border-blue-300/30">
+                    Regulatory & Compliance Contact
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    Contact Us
+                  </h2>
+                  <p className="text-slate-300 text-base mb-6 leading-relaxed">
+                    For regulatory and grievance-related matters, please contact our designated Compliance / Grievance Officer.
+                  </p>
+                  <p className="text-xl font-semibold text-white">
+                    Thinktank IFSC Private Limited
+                  </p>
+                  <p className="text-sm text-blue-200">
+                    GIFT International Financial Services Centre (GIFT IFSC), GIFT City, Gujarat, India
+                  </p>
+                </div>
+
+                <div className="space-y-6 bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-300 shrink-0">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs uppercase font-semibold text-slate-400 tracking-wider">
+                        Compliance Email
+                      </h4>
+                      <a
+                        href="mailto:compliance@theimperialcrest.com"
+                        className="text-sm md:text-base text-blue-300 hover:underline mt-1 inline-block font-medium"
+                      >
+                        compliance@theimperialcrest.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-300 shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs uppercase font-semibold text-slate-400 tracking-wider">
+                        Phone Contact
+                      </h4>
+                      <a
+                        href="tel:8238068930"
+                        className="text-sm md:text-base text-blue-300 hover:underline mt-1 inline-block font-medium"
+                      >
+                        +91 8238068930
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-300 shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs uppercase font-semibold text-slate-400 tracking-wider">
+                        Registered Location
+                      </h4>
+                      <p className="text-sm md:text-base text-white mt-1 leading-relaxed">
+                        Unit No. 651, 6th Floor, Signature Building, GIFT City, Gandhinagar, Gujarat &ndash; 382050
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}

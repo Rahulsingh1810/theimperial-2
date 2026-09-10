@@ -9,18 +9,26 @@ export default function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isWhoWeAreOpen, setIsWhoWeAreOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0,
   );
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleSubmenu = (label: string) =>
+    setOpenSubmenu(openSubmenu === label ? null : label);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const whatWeDoSubmenu = [
+    { href: "/what-we-do", label: "Overview" },
+    { href: "/global-access-provider", label: "Global Access Provider" },
+    { href: "/fund-management-entity-non-retail", label: "Fund Management Entity (Non-Retail)" },
+  ];
 
   const whoWeAreSubmenu = [
     { href: "/who-we-are/leadership", label: "Our Leadership" },
@@ -30,7 +38,12 @@ export default function Header() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/what-we-do", label: "What We Do" },
+    {
+      href: "/what-we-do",
+      label: "What We Do",
+      submenu: whatWeDoSubmenu,
+      hasSubmenu: true,
+    },
     {
       href: "/who-we-are",
       label: "Who We Are",
@@ -54,12 +67,12 @@ export default function Header() {
                 <li key={item.href} className="relative group">
                   {item.hasSubmenu ? (
                     <div>
-                      <button className="flex items-center hover:text-pantone-dark peer">
+                      <button className="flex items-center hover:text-pantone-dark peer py-1 font-medium">
                         {item.label}
                         <ChevronDown className="ml-1 h-4 w-4" />
                       </button>
                       <div
-                        className="absolute left-0 mt-2 w-48 bg-pantone-dark text-white shadow-lg 
+                        className="absolute left-0 mt-2 min-w-[280px] bg-pantone-dark text-white shadow-xl rounded-b-lg overflow-hidden
                                  opacity-0 invisible peer-hover:opacity-100 peer-hover:visible
                                  hover:opacity-100 hover:visible
                                  transition-all duration-150 transform -translate-y-2 peer-hover:translate-y-0
@@ -69,7 +82,7 @@ export default function Header() {
                           <Link
                             key={subItem.href}
                             href={subItem.href}
-                            className="block px-4 py-2 hover:bg-pantone"
+                            className="block px-5 py-3 hover:bg-pantone text-sm font-medium border-b border-white/5 last:border-0 transition-colors"
                           >
                             {subItem.label}
                           </Link>
@@ -77,7 +90,7 @@ export default function Header() {
                       </div>
                     </div>
                   ) : (
-                    <Link href={item.href} className="hover:text-gray-300">
+                    <Link href={item.href} className="hover:text-gray-300 font-medium">
                       {item.label}
                     </Link>
                   )}
@@ -96,10 +109,10 @@ export default function Header() {
 
       <div
         className={`fixed inset-0 bg-pantone-dark z-50 lg:hidden transform transition-transform duration-300 ease-in-out backdrop-blur-md bg-opacity-90 ${
-          isMenuOpen ? "translate-x-0 " : "translate-x-full  hidden"
+          isMenuOpen ? "translate-x-0 " : "translate-x-full hidden"
         }`}
       >
-        <div className="container mx-auto px-4 py-6 bg-zinc-100">
+        <div className="container mx-auto px-4 py-6 bg-zinc-100 min-h-screen overflow-y-auto">
           <div className="flex justify-between items-center mb-8">
             <Link href="/" className="text-2xl font-bold" onClick={toggleMenu}>
               The Imperial Crest
@@ -115,25 +128,29 @@ export default function Header() {
                   {item.hasSubmenu ? (
                     <>
                       <button
-                        className="text-2xl hover:text-gray-300 w-full text-left flex items-center"
-                        onClick={() => setIsWhoWeAreOpen(!isWhoWeAreOpen)}
+                        className="text-2xl hover:text-gray-300 w-full text-left flex items-center justify-between"
+                        onClick={() => toggleSubmenu(item.label)}
                       >
-                        {item.label}
-                        <ChevronDown className="ml-2 h-6 w-6" />
+                        <span>{item.label}</span>
+                        <ChevronDown
+                          className={`ml-2 h-6 w-6 transition-transform duration-200 ${
+                            openSubmenu === item.label ? "rotate-180" : ""
+                          }`}
+                        />
                       </button>
                       <div
                         className={`transition-all transform duration-300 ease-in-out overflow-hidden ${
-                          isWhoWeAreOpen
-                            ? "max-h-screen opacity-100 visible translate-y-0"
-                            : "max-h-0 opacity-0 invisible translate-y-4"
+                          openSubmenu === item.label
+                            ? "max-h-screen opacity-100 visible translate-y-0 mt-3"
+                            : "max-h-0 opacity-0 invisible translate-y-2"
                         }`}
                       >
-                        <ul className="ml-4 mt-4 space-y-4">
+                        <ul className="ml-4 space-y-3 border-l-2 border-pantone-dark/20 pl-4">
                           {item.submenu.map((subItem) => (
                             <li key={subItem.href}>
                               <Link
                                 href={subItem.href}
-                                className="text-xl hover:text-gray-300"
+                                className="text-xl hover:text-gray-300 block py-1"
                                 onClick={toggleMenu}
                               >
                                 {subItem.label}
@@ -146,7 +163,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-2xl hover:text-gray-300"
+                      className="text-2xl hover:text-gray-300 block"
                       onClick={toggleMenu}
                     >
                       {item.label}
@@ -154,16 +171,6 @@ export default function Header() {
                   )}
                 </li>
               ))}
-              {/* <li>
-                <Button
-                  variant="outline"
-                  className="w-full text-pantone border-white hover:bg-gray-100 text-xl py-3"
-                >
-                  <Link onClick={toggleMenu} href="/contact">
-                    Contact Us
-                  </Link>
-                </Button>
-              </li> */}
             </ul>
           </nav>
         </div>
