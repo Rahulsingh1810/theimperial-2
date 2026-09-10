@@ -62,12 +62,12 @@ export default function Header() {
             The Imperial Crest
           </Link>
           <nav className="hidden lg:block">
-            <ul className="flex space-x-6">
+            <ul className="flex items-center space-x-6">
               {navItems.map((item) => (
-                <li key={item.href} className="relative group">
+                <li key={item.href} className="relative group flex items-center">
                   {item.hasSubmenu ? (
                     <div>
-                      <button className="flex items-center hover:text-pantone-dark peer py-1 font-medium">
+                      <button className="flex items-center hover:text-pantone-dark peer py-1 font-medium leading-none">
                         {item.label}
                         <ChevronDown className="ml-1 h-4 w-4" />
                       </button>
@@ -90,7 +90,10 @@ export default function Header() {
                       </div>
                     </div>
                   ) : (
-                    <Link href={item.href} className="hover:text-gray-300 font-medium">
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center hover:text-pantone-dark font-medium py-1 leading-none transition-colors"
+                    >
                       {item.label}
                     </Link>
                   )}
