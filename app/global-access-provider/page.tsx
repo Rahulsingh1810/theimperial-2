@@ -96,10 +96,10 @@ export default function GlobalAccessProviderPage() {
               Authorized Global Access Provider (GAP)
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
-              THINKTANK IFSC PRIVATE LIMITED
+              Thinktank IFSC Private Limited
             </h1>
             <p className="text-xl md:text-2xl font-light text-blue-100/90 mb-6">
-              Global Access &bull; GIFT City, Gujarat
+              Global Access Provider &bull; GIFT IFSC, Gujarat, India
             </p>
             <div className="h-1 w-24 bg-gradient-to-r from-blue-400 to-indigo-300 mx-auto mb-8 rounded-full"></div>
             <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
@@ -293,7 +293,6 @@ export default function GlobalAccessProviderPage() {
                     {
                       label: "GAP Authorisation Number",
                       value: "IFSCA/GAP/BD/2025-26/003",
-                      highlight: true,
                     },
                     { label: "Date of Authorisation", value: "06 November 2025" },
                     {
@@ -314,10 +313,6 @@ export default function GlobalAccessProviderPage() {
                       <span
                         className={`md:col-span-2 mt-1 md:mt-0 ${
                           row.bold ? "font-bold text-pantone text-base" : "text-slate-800"
-                        } ${
-                          row.highlight
-                            ? "inline-block bg-blue-100 text-pantone font-mono font-bold px-2 py-0.5 rounded w-fit"
-                            : ""
                         }`}
                       >
                         {row.value}

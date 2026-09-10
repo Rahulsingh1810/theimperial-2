@@ -22,6 +22,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export default function FundManagementEntityPage() {
+  const quickLinks = [
+    { id: "home", label: "Home" },
+    { id: "regulatory-info", label: "Regulatory Information" },
+    { id: "fme-activities", label: "FME Activities" },
+    { id: "governance", label: "Governance & Compliance" },
+    { id: "grievance-redressal", label: "Grievance Redressal" },
+    { id: "contact-us", label: "Contact Us" },
+  ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const governanceItems = [
     "Regulatory compliance",
     "Risk management",
@@ -37,7 +53,10 @@ export default function FundManagementEntityPage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-800">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-[#041836] via-[#08225a] to-[#0b2b6f] text-white py-20 lg:py-28 overflow-hidden">
+      <section
+        id="home"
+        className="relative bg-gradient-to-b from-[#041836] via-[#08225a] to-[#0b2b6f] text-white py-20 lg:py-28 overflow-hidden"
+      >
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -58,9 +77,29 @@ export default function FundManagementEntityPage() {
         </div>
       </section>
 
+      {/* Sticky Quick Links Bar */}
+      <div className="sticky top-[73px] z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center justify-center overflow-x-auto py-3 gap-2 md:gap-6 no-scrollbar">
+            <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider hidden md:inline-block mr-2">
+              Quick Links:
+            </span>
+            {quickLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="text-sm font-medium text-slate-600 hover:text-pantone hover:bg-slate-100 px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap"
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-12 md:py-16 space-y-16">
         {/* Overview & Regulatory Details Section */}
-        <section>
+        <section id="regulatory-info" className="scroll-mt-36">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-pantone mb-3">
@@ -94,12 +133,10 @@ export default function FundManagementEntityPage() {
                     {
                       label: "FME Category",
                       value: "Fund Management Entity – Non-Retail",
-                      badge: true,
                     },
                     {
                       label: "FME Registration Number",
                       value: "FDM2026FNR1056",
-                      highlight: true,
                     },
                     {
                       label: "Jurisdiction",
@@ -123,14 +160,6 @@ export default function FundManagementEntityPage() {
                       <span
                         className={`md:col-span-2 mt-1 md:mt-0 ${
                           row.bold ? "font-bold text-pantone text-base" : "text-slate-800"
-                        } ${
-                          row.highlight
-                            ? "inline-block bg-blue-100 text-pantone font-mono font-bold px-3 py-1 rounded-md w-fit"
-                            : ""
-                        } ${
-                          row.badge
-                            ? "inline-block bg-slate-800 text-white font-semibold px-2.5 py-0.5 rounded text-xs tracking-wide w-fit"
-                            : ""
                         }`}
                       >
                         {row.value}
@@ -142,32 +171,12 @@ export default function FundManagementEntityPage() {
             </Card>
 
             {/* Current Status Callout */}
-            <div className="bg-gradient-to-r from-blue-900 to-pantone-dark text-white p-8 rounded-3xl shadow-xl relative overflow-hidden">
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-blue-500/20 border border-blue-400/30 flex items-center justify-center shrink-0 text-blue-300">
-                  <Info className="w-8 h-8" />
-                </div>
-                <div className="space-y-3">
-                  <Badge className="bg-blue-400/20 text-blue-200 border-none font-semibold">
-                    Current Operational Status
-                  </Badge>
-                  <h3 className="text-xl md:text-2xl font-bold text-white">
-                    Development Stage Notice
-                  </h3>
-                  <p className="text-slate-200 text-base leading-relaxed">
-                    Thinktank IFSC Private Limited is currently developing its fund management activities. <strong>No fund or scheme has been launched by the Company as of date.</strong>
-                  </p>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    Accordingly, there are currently no fund-specific details such as fund corpus, NAV, portfolio, investment performance or scheme-wise investor information available on this website. Details relating to any fund or scheme launched in the future will be disclosed as required under the applicable regulatory framework.
-                  </p>
-                </div>
-              </div>
-            </div>
+           
           </div>
         </section>
 
         {/* FME Activities & Governance Section */}
-        <section>
+        <section id="fme-activities" className="scroll-mt-36">
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="border-slate-200 shadow-md bg-white">
@@ -245,7 +254,7 @@ export default function FundManagementEntityPage() {
         </section>
 
         {/* Management, Conflicts of Interest, AML & KYC Section */}
-        <section>
+        <section id="governance" className="scroll-mt-36">
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-slate-200 shadow-md bg-white">
               <CardHeader>
@@ -292,40 +301,81 @@ export default function FundManagementEntityPage() {
         </section>
 
         {/* Grievance Redressal & Disclosures */}
-        <section>
+        <section id="grievance-redressal" className="scroll-mt-36">
           <div className="max-w-5xl mx-auto space-y-8">
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-lg">
-              <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-pantone mb-2">
-                    Grievance Redressal Mechanism
-                  </h3>
-                  <p className="text-slate-600 text-sm md:text-base">
-                    Addressing grievances in a fair, transparent, and timely manner.
-                  </p>
-                </div>
-                <div className="bg-blue-50 border border-blue-200 p-4 rounded-2xl flex items-center gap-3 shrink-0">
-                  <Mail className="w-5 h-5 text-pantone" />
-                  <div>
-                    <div className="text-xs uppercase font-semibold text-slate-500">
-                      Grievance Contact Email
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-lg">
+              <div className="mb-6">
+                <Badge className="bg-blue-100 text-pantone hover:bg-blue-200 mb-3 border-none font-semibold">
+                  Grievance Redressal Mechanism
+                </Badge>
+                <h3 className="text-2xl md:text-3xl font-bold text-pantone">
+                  GRIEVANCE REDRESSAL CONTACT
+                </h3>
+              </div>
+
+              <div className="space-y-3 text-slate-700 text-sm md:text-base leading-relaxed mb-6">
+                <p className="font-semibold text-slate-800">
+                  Thinktank IFSC Private Limited is committed to addressing grievances in a fair, transparent and timely manner.
+                </p>
+                <p>
+                  Any client, investor or other concerned person may submit a grievance to the Company through its designated grievance redressal mechanism.
+                </p>
+              </div>
+
+              {/* Grievance Redressal Contact Box */}
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 mb-6">
+                <h4 className="text-base font-bold text-pantone uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <UserCheck className="w-5 h-5 text-pantone" />
+                  Grievance Redressal Contact
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-sm">
+                    <p className="font-bold text-slate-900 text-base">CRO Name &ndash; Rahul N Patel</p>
+                    <div className="flex items-center gap-2 mt-2 text-sm text-slate-600">
+                      <Mail className="w-4 h-4 text-pantone shrink-0" />
+                      <span>Email:</span>
+                      <a href="mailto:compliance@theimperialcrest.com" className="text-pantone font-semibold hover:underline">
+                        compliance@theimperialcrest.com
+                      </a>
                     </div>
-                    <a
-                      href="mailto:info@theimperialcrest.com"
-                      className="text-pantone font-bold text-sm hover:underline"
-                    >
-                      info@theimperialcrest.com
-                    </a>
+                  </div>
+
+                  <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-sm">
+                    <p className="font-bold text-slate-900 text-base">CRAO Name &ndash; Tusheet Saraf</p>
+                    <div className="flex items-center gap-2 mt-2 text-sm text-slate-600">
+                      <Mail className="w-4 h-4 text-pantone shrink-0" />
+                      <span>Email:</span>
+                      <a href="mailto:tusheet@theimperialcrest.com" className="text-pantone font-semibold hover:underline">
+                        tusheet@theimperialcrest.com
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="space-y-3 text-slate-600 text-sm md:text-base leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <p>
-                  Any client, investor, or other concerned person may submit a grievance to the Company through its designated grievance redressal mechanism.
-                </p>
+
+              <div className="space-y-3 text-slate-600 text-sm md:text-base leading-relaxed mb-8">
                 <p>
                   The Company shall endeavour to address grievances in accordance with its internal grievance redressal procedure and applicable regulatory requirements. Where applicable, unresolved grievances may be escalated through the grievance redressal mechanism prescribed by IFSCA.
                 </p>
+              </div>
+
+              {/* Complaint Handling & Grievance Redressal Policy Link */}
+              <div className="pt-6 border-t border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                  <h4 className="text-base font-bold text-slate-900 uppercase tracking-wide">
+                    COMPLAINT HANDLING AND GRIEVANCE REDRESSAL POLICY
+                  </h4>
+                </div>
+                <a
+                  href="/21_Complaint_Handling_and_Grievance_Redressal_Policy_Signed.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="21_Complaint_Handling_and_Grievance_Redressal_Policy_Signed.pdf"
+                  className="inline-flex items-center gap-2 bg-pantone hover:bg-pantone-dark text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 shadow-md shrink-0"
+                >
+                  <FileText className="w-4 h-4" />
+                  (TO VIEW THE POLICY PLEASE CLICK HERE)
+                </a>
               </div>
             </div>
 
@@ -344,14 +394,14 @@ export default function FundManagementEntityPage() {
                 The information provided on this website is for general information purposes only and does not constitute an offer, solicitation, invitation, or recommendation to invest in any fund, scheme, or financial product.
               </p>
               <p className="text-amber-900 text-xs md:text-sm leading-relaxed">
-                No fund or scheme is currently being offered or launched by Thinktank IFSC Private Limited. Any fund or scheme that may be launched or managed by the Company in the future will be subject to applicable regulatory requirements and the relevant offering documents and disclosures. Investment in financial products involves risks. Prospective investors should carefully review offering documents and seek appropriate professional advice.
+                Investment in financial products involves risks. Prospective investors should carefully review offering documents and seek appropriate professional advice.
               </p>
             </div>
           </div>
         </section>
 
         {/* Contact Us Section */}
-        <section>
+        <section id="contact-us" className="scroll-mt-36">
           <div className="max-w-5xl mx-auto">
             <div className="bg-gradient-to-br from-[#041836] to-[#08225a] text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
