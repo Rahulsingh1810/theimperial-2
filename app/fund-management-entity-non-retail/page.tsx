@@ -377,15 +377,7 @@ export default function FundManagementEntityPage() {
                     <FileText className="w-4 h-4" />
                     (TO VIEW THE POLICY PLEASE CLICK HERE)
                   </a>
-                  <a
-                    href="/21_Complaint_Handling_and_Grievance_Redressal_Policy_Signed.pdf"
-                    download="21_Complaint_Handling_and_Grievance_Redressal_Policy_Signed.pdf"
-                    className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 px-4 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 shadow-sm"
-                    title="Download Policy PDF"
-                  >
-                    <Download className="w-4 h-4 text-slate-600" />
-                    Download PDF
-                  </a>
+                  
                 </div>
               </div>
             </div>
